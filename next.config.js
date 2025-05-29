@@ -24,8 +24,11 @@ const nextConfig = {
         hostname: 'i.imgur.com',
       },
     ],
+    unoptimized: true,
   },
   reactStrictMode: false,
+  output: 'export',
+  basePath: process.env.NODE_ENV === 'production' ? '/Tiktok-Desensitized' : '',
 }
 
 module.exports = nextConfig
