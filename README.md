@@ -1,35 +1,169 @@
-# Responsive Next Tiktok Website
+# Next.js TikTok Clone
 
- Demo URL: https://next-tiktok.onrender.com
+A TikTok clone built with Next.js, featuring a modern UI and real-time interactions.
 
- A fullstack Tiktok clone with NextJs's latest version 13.
-
-
-## Technologies
-
-- NextJs, TypeScript, Scss
-- Socket.IO
-- SWR
-- react-hook-form
-- next-auth (Authentication).
-- next-intl (Internationalization).
-- MongoDB (Mongoose)
-- And other libraries as classnames, query-string, ...
-
+## Table of Contents
+- [Next.js TikTok Clone](#nextjs-tiktok-clone)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+  - [Repository Structure](#repository-structure)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Environment Variables](#environment-variables)
+    - [Development](#development)
+    - [Build](#build)
+  - [Project Structure](#project-structure)
+    - [API Routes](#api-routes)
+    - [Components](#components)
+    - [Styling](#styling)
+    - [State Management](#state-management)
+    - [Authentication](#authentication)
+    - [Database](#database)
+    - [Real-time Features](#real-time-features)
+    - [Testing](#testing)
+    - [Deployment](#deployment)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Preview](#preview)
+  - [Resource](#resource)
 
 ## Features
+- 🎥 Video upload and playback
+- 👥 User authentication
+- 💬 Comments and likes
+- 🔍 Search functionality
+- 📱 Responsive design
+- 🌐 Internationalization
+- 🔄 Real-time updates
 
-- Authentication (with Google)
-- Internationalized Routing (English and Vietnamese)
-- Infinite scroll for video and comment
-- Realtime comment and reply comment
-- Social sharing (Facebook and Twitter)
-- Upload video 
-- Toggle theme (Dark / White Mode)
-- Follow user
-- Like a video
-- Search accounts
-- Responsive and SEO
+## Tech Stack
+- **Framework**: Next.js 13
+- **Language**: TypeScript
+- **Styling**: SCSS Modules
+- **Database**: MongoDB
+- **Authentication**: NextAuth.js
+- **Real-time**: Socket.io
+- **State Management**: SWR
+- **Testing**: Jest
+- **Deployment**: Vercel
+
+## Repository Structure
+```
+├── .github/              # GitHub Actions workflows
+├── app/                  # Next.js 13 app directory
+│   ├── api/             # API routes
+│   ├── (auth)/          # Authentication routes
+│   ├── (site)/          # Public routes
+│   └── layout.tsx       # Root layout
+├── components/          # React components
+├── lib/                 # Utility functions
+├── models/              # Database models
+├── public/             # Static assets
+├── styles/             # Global styles
+└── types/              # TypeScript types
+```
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+
+- MongoDB
+- Yarn package manager
+
+### Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/next-tiktok.git
+cd next-tiktok
+```
+
+2. Install dependencies:
+```bash
+yarn install
+```
+
+### Environment Variables
+Create a `.env.local` file in the root directory:
+```env
+MONGODB_URI=your_mongodb_uri
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+```
+
+### Development
+Run the development server:
+```bash
+yarn dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Build
+Build the application:
+```bash
+yarn build
+```
+
+## Project Structure
+
+### API Routes
+- `/api/auth/*` - Authentication endpoints
+- `/api/videos/*` - Video management
+- `/api/comments/*` - Comment system
+- `/api/users/*` - User management
+
+### Components
+- `VideoCard` - Video display component
+- `CommentSection` - Comments and interactions
+- `UserProfile` - User information display
+- `Navigation` - Site navigation
+- `UploadModal` - Video upload interface
+
+### Styling
+- SCSS Modules for component-specific styles
+- Global styles in `styles/globals.scss`
+- Responsive design with mobile-first approach
+
+### State Management
+- SWR for data fetching and caching
+- React Context for global state
+- Local state with React hooks
+
+### Authentication
+- NextAuth.js for authentication
+- JWT for session management
+- OAuth providers support
+
+### Database
+- MongoDB for data storage
+- Mongoose for data modeling
+- Indexed fields for performance
+
+### Real-time Features
+- Socket.io for real-time updates
+- WebSocket connections for live interactions
+- Event-based communication
+
+### Testing
+- Jest for unit testing
+- React Testing Library for component testing
+- API route testing
+
+### Deployment
+- Vercel for hosting
+- GitHub Actions for CI/CD
+- Environment variable management
+
+## Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
 ## Preview
