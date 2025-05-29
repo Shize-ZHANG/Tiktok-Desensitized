@@ -29,18 +29,7 @@ jobs:
       run: yarn install --frozen-lockfile
       
     - name: Build
-      run: |
-        yarn build
-        ls -la
-        echo "Checking build output directory..."
-        if [ -d "out" ]; then
-          echo "out directory exists"
-          ls -la out/
-        else
-          echo "out directory not found"
-          echo "Listing current directory contents:"
-          ls -la
-        fi
+      run: yarn build
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -50,7 +39,7 @@ jobs:
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: out/
+        path: .next/
         
     - name: Deploy to GitHub Pages
       id: deployment
