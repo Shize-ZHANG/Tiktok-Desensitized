@@ -27,9 +27,6 @@ jobs:
     - name: Run TypeScript check
       run: yarn tsc --noEmit
       
-    - name: Check for outdated dependencies
-      run: yarn outdated
-      
     - name: Run Prettier check
       run: yarn prettier --check "**/*.{js,jsx,ts,tsx,json,css,scss,md}"
       
