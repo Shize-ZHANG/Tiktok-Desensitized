@@ -1,0 +1,45 @@
+name: Update Dependencies
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # 每周日运行
+  workflow_dispatch:      # 允许手动触发
+
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      
+    - name: Check for outdated packages
+      run: yarn outdated
+      
+    - name: Update dependencies
+      run: |
+        yarn upgrade-interactive --latest
+        yarn install
+        yarn build
+        
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'chore: update dependencies'
+        title: 'chore: update dependencies'
+        body: |
+          This PR updates project dependencies to their latest versions.
+          
+          Changes made:
+          - Updated all dependencies to their latest versions
+          - Rebuilt the project to ensure compatibility
+        branch: update-dependencies
+        base: develop 
