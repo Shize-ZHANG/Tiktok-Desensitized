@@ -5,12 +5,18 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  deployments: write
+  pages: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -34,11 +40,18 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          github.rest.repos.createDeployment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            ref: context.sha,
-            environment: 'production',
-            auto_merge: false,
-            required_contexts: []
-          }) 
+          try {
+            await github.rest.repos.createDeployment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.sha,
+              environment: 'production',
+              auto_merge: false,
+              required_contexts: [],
+              description: 'Deployment from GitHub Actions'
+            });
+          } catch (error) {
+            console.error('Deployment creation failed:', error);
+            // Don't fail the workflow if deployment creation fails
+            process.exit(0);
+          } 
