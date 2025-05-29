@@ -40,7 +40,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build with Next.js
-        run: yarn build
+        run: |
+          yarn build
+          echo "Listing build output directory:"
+          ls -la out/
+          echo "Listing build output directory contents:"
+          find out/ -type f
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

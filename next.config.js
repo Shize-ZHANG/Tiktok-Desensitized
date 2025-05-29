@@ -31,6 +31,13 @@ const nextConfig = {
   trailingSlash: true,
   assetPrefix: process.env.NODE_ENV === 'production' ? '/Tiktok-Desensitized/' : '',
   distDir: 'out',
+  exportPathMap: async function () {
+    return {
+      '/': { page: '/' },
+      '/404': { page: '/404' },
+      '/_error': { page: '/_error' },
+    }
+  },
 }
 
 module.exports = nextConfig
