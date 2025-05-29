@@ -29,7 +29,18 @@ jobs:
       run: yarn install --frozen-lockfile
       
     - name: Build
-      run: yarn build
+      run: |
+        yarn build
+        ls -la
+        echo "Checking build output directory..."
+        if [ -d "out" ]; then
+          echo "out directory exists"
+          ls -la out/
+        else
+          echo "out directory not found"
+          echo "Listing current directory contents:"
+          ls -la
+        fi
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
