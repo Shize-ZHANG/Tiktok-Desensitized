@@ -26,10 +26,11 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  output: 'standalone',
+  output: 'export',
   basePath: process.env.NODE_ENV === 'production' ? '/Tiktok-Desensitized' : '',
   trailingSlash: true,
   assetPrefix: process.env.NODE_ENV === 'production' ? '/Tiktok-Desensitized/' : '',
+  distDir: 'out',
 }
 
 module.exports = nextConfig
