@@ -42,8 +42,8 @@ jobs:
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: .next/static
-        name: nextjs-static
+        path: .next
+        name: github-pages
         
     - name: Deploy to GitHub Pages
       id: deployment
