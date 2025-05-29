@@ -26,7 +26,7 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  output: 'export',
+  output: 'standalone',
   basePath: process.env.NODE_ENV === 'production' ? '/Tiktok-Desensitized' : '',
   trailingSlash: true,
   assetPrefix: process.env.NODE_ENV === 'production' ? '/Tiktok-Desensitized/' : '',
