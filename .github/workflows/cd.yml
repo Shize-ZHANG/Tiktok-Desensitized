@@ -30,12 +30,6 @@ jobs:
     - name: Build
       run: yarn build
       
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: nextjs-build
-        path: .next/
-        
     - name: Setup Pages
       uses: actions/configure-pages@v3
       
@@ -47,7 +41,7 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v2
-
+      
     - name: Create deployment
       uses: actions/github-script@v6
       with:
@@ -64,6 +58,5 @@ jobs:
             });
           } catch (error) {
             console.error('Deployment creation failed:', error);
-            // Don't fail the workflow if deployment creation fails
             process.exit(0);
           } 
