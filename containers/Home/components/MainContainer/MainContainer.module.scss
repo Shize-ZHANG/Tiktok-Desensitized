@@ -1,0 +1,23 @@
+@use '~/styles/abstracts/' as *;
+
+.wrapper {
+  margin-right: 16px;
+  margin-left: 16px;
+  padding: 24px 0;
+  position: relative;
+}
+
+.card-item {
+  position: relative;
+  padding: 20px 0;
+
+  &::after {
+    @include pseudo;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    height: 1px;
+    transform: scaleY(0.5);
+    background: var(--colorLinePrimary2);
+  }
+}

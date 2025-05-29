@@ -1,0 +1,5 @@
+@use '~/styles/abstracts/' as *;
+
+.wrapper-video {
+  @include flex(flex, null, null);
+}

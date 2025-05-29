@@ -1,0 +1,97 @@
+@use '~/styles/abstracts/' as *;
+
+.wrapper {
+  @include flex;
+  flex-direction: column;
+  width: 260px;
+  height: 458px;
+  border: 2px dashed var(--colorLinePrimary2);
+  border-radius: 8px;
+  transition: background 0.15s ease-in-out 0s;
+  padding-left: 35px;
+  padding-right: 35px;
+  background: var(--colorBGSecondary);
+
+  cursor: pointer;
+
+  &:hover {
+    background: var(--colorBGView);
+    border-color: var(--colorPrimary);
+  }
+
+  & > .cloud-icon {
+    color: var(--colorPrimary2);
+  }
+
+  & > h4 {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    font-weight: 600;
+    color: var(--colorTextPrimary);
+  }
+
+  & > span {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--colorTextSecondary);
+  }
+
+  & .sub-content {
+    display: block;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--colorTextTertiary);
+
+    & + .sub-content {
+      margin-top: 6px;
+    }
+  }
+
+  .button {
+    margin-top: 32px;
+    width: 186px;
+    border-radius: 0px;
+  }
+}
+
+.wrapper-change-video {
+  @include flex(inline-flex, center, space-between);
+  display: flex;
+  height: fit-content;
+  width: 284px;
+  flex: 1 0 auto;
+  margin-right: 8px;
+
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+
+  background: var(--colorBGSecondary2);
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid var(--colorLineSecondary2);
+  margin-top: 16px;
+  color: var(--colorTextPrimary);
+
+  .file {
+    font-weight: 400;
+    color: var(--colorTextSecondary);
+    @include flex(flex, center, center);
+    max-width: 150px;
+  }
+  .name {
+    @include text-shorten(1);
+  }
+
+  .button {
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    text-decoration: underline;
+  }
+}

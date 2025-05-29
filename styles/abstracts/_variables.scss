@@ -1,0 +1,22 @@
+$primary: #fe2c55;
+$white: #ffffff;
+$black: #000000;
+$text-color: #161823;
+
+$header-width: 1150px;
+$header-height: 60px;
+
+$upload-width: 1100px;
+
+$sidebar-desktop-width: 348px;
+$sidebar-mobile-width: 72px;
+
+$search-bar-width: 361px;
+$search-bar-height: 46px;
+
+$z-indexes: ('modal', 'popper', 'header', 'sidebar');
+$breakpoints: (
+  'tablet': 768px,
+  'footer': 992px,
+  'desktop': 1072px,
+);

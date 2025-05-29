@@ -1,0 +1,63 @@
+@use '~/styles/abstracts/' as *;
+
+.wrapper {
+  @include flex;
+  margin-left: 16px;
+  padding: 8px 4px;
+  position: relative;
+
+  .more-icon {
+    cursor: pointer;
+  }
+
+  .avatar {
+    margin-left: 8px;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+
+.wrapper.active > .popper-wrapper {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popper-wrapper {
+  $color: var(--colorTextPrimary);
+
+  @include fade('hide');
+  min-width: 223px;
+
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  padding: 8px 0px;
+  margin: 0px;
+
+  min-width: 223px;
+  z-index: z-index('popper');
+
+  .wrapper-item {
+    @include flex(flex, center, space-between);
+    padding: 0 16px;
+  }
+
+  .wrapper-item:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .item {
+    width: 100%;
+    justify-content: left;
+    font-weight: 600;
+    padding: 0;
+    color: var(--colorTextPrimary);
+  }
+
+  .wrapper-item.separate {
+    border-top: 1px solid var(--colorLineSecondary);
+  }
+}

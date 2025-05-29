@@ -1,0 +1,197 @@
+@use './abstracts/' as *;
+@import 'normalize.css';
+
+:root {
+  --colorWhite: rgba(255, 255, 255, 1);
+  --colorBlack: rgba(0, 0, 0, 1);
+}
+
+:root[data-theme='light'] {
+  --colorPrimary: rgba(254, 44, 85, 1);
+  --colorLink: rgba(254, 44, 85, 1);
+  --colorPrimary2: rgba(22, 24, 35, 1);
+
+  --colorTextPrimary: rgba(22, 24, 35, 1);
+  --colorTextSecondary: rgba(22, 24, 35, 0.75);
+  --colorTextTertiary: rgba(22, 24, 35, 0.5);
+
+  --colorTextQuaternary: rgba(22, 24, 35, 0.34);
+  --colorBGPrimary: rgba(255, 255, 255, 1);
+  --colorBGSecondary: rgba(255, 255, 255, 1);
+  --colorBGTertiary: rgba(255, 255, 255, 1);
+  --colorBGQuaternary: rgba(255, 255, 255, 1);
+  --colorBGQuinary: rgba(255, 255, 255, 1);
+  --colorBGSecondary2: rgba(255, 255, 255, 1);
+  --colorBGTertiary2: rgba(255, 255, 255, 1);
+
+  --colorBGPlaceholderDefault: rgba(22, 24, 35, 0.06);
+  --colorBGPlaceholderOpaque: rgba(241, 241, 241, 1);
+
+  --colorBGInput: rgba(22, 24, 35, 0.06);
+  --colorBGInput2: rgba(22, 24, 35, 0.06);
+  --colorBGView: rgba(22, 24, 35, 0.03);
+  --colorBGCreation3: rgba(248, 248, 248, 1);
+  --colorBGCreation4: rgba(255, 255, 255, 1);
+  --colorBGHover: rgba(22, 24, 35, 0.06);
+
+  --colorBGBrand: rgba(254, 44, 85, 0.06);
+  --colorLinePrimary: rgba(22, 24, 35, 0.2);
+  --colorLineSecondary: rgba(22, 24, 35, 0.12);
+  --colorLineInput: rgba(22, 24, 35, 0.5);
+  --colorLinePrimary2: rgba(22, 24, 35, 0.2);
+  --colorLineSecondary2: rgba(22, 24, 35, 0.12);
+  --colorLineSecondary3: rgba(22, 24, 35, 0.12);
+  --colorLineDarker: rgba(22, 24, 35, 0.12);
+
+  --colorSDSecondary: rgba(0, 0, 0, 0.5);
+  --colorSDTertiary: rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme='dark'] {
+  --colorPrimary: rgba(255, 59, 92, 1);
+  --colorLink: rgba(255, 59, 92, 1);
+  --colorPrimary2: rgba(255, 255, 255, 0.9);
+
+  --colorTextPrimary: rgba(255, 255, 255, 0.9);
+  --colorTextSecondary: rgba(255, 255, 255, 0.75);
+  --colorTextTertiary: rgba(255, 255, 255, 0.5);
+
+  --colorTextQuaternary: rgba(255, 255, 255, 0.34);
+  --colorBGPrimary: rgba(18, 18, 18, 1);
+  --colorBGSecondary: rgba(37, 37, 37, 1);
+  --colorBGTertiary: rgba(46, 46, 46, 1);
+  --colorBGQuaternary: rgba(56, 56, 56, 1);
+  --colorBGQuinary: rgba(75, 75, 75, 1);
+  --colorBGSecondary2: rgba(255, 255, 255, 0.08);
+  --colorBGTertiary2: rgba(255, 255, 255, 0.12);
+
+  --colorBGPlaceholderDefault: rgba(255, 255, 255, 0.08);
+  --colorBGPlaceholderOpaque: rgba(37, 37, 37, 1);
+
+  --colorBGInput: rgba(255, 255, 255, 0.12);
+  --colorBGInput2: rgba(255, 255, 255, 0.08);
+  --colorBGView: rgba(255, 255, 255, 0.04);
+  --colorBGCreation3: rgba(18, 18, 18, 1);
+  --colorBGCreation4: rgba(27, 27, 27, 1);
+  --colorBGBrand: rgba(254, 44, 85, 0.34);
+
+  --colorLinePrimary: rgba(255, 255, 255, 0);
+  --colorLineSecondary: rgba(255, 255, 255, 0.12);
+  --colorLineInput: rgba(255, 255, 255, 0.5);
+  --colorLinePrimary2: rgba(255, 255, 255, 0.2);
+  --colorLineSecondary2: rgba(255, 255, 255, 0);
+  --colorLineSecondary3: rgba(255, 255, 255, 0.5);
+  --colorLineDarker: rgba(0, 0, 0, 0.6);
+
+  --colorSDSecondary: rgba(0, 0, 0, 0.68);
+  --colorSDTertiary: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+// Scrollbar CSS
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}
+
+html[data-theme='light'] *::-webkit-scrollbar-thumb {
+  background-color: rgba(22, 24, 35, 0.06);
+}
+
+html[data-theme='dark'] *::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  color: var(--colorTextPrimary);
+  overflow-y: overlay;
+  overflow-x: hidden;
+  background-color: var(--colorBGPrimary);
+  min-height: 100vh;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+button,
+input,
+[tabIndex] {
+  outline: none;
+  border: none;
+}
+
+a {
+  color: var(--colorTextPrimary);
+  text-decoration: none;
+}
+
+// Custom tippy tooltip
+body {
+  .tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    background-color: rgba(84, 84, 84, 0.92);
+  }
+
+  .tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+  }
+
+  .tippy-content {
+    padding: 8px 9px;
+  }
+
+  .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+    top: -8px;
+  }
+}
+
+// custom margin
+.mt-1 {
+  margin-top: 4px;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+.mt-3 {
+  margin-top: 12px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mt-5 {
+  margin-top: 20px;
+}
+
+.mt-6 {
+  margin-top: 24px;
+}

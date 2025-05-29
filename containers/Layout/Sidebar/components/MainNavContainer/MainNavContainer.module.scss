@@ -1,0 +1,41 @@
+@use '~/styles/abstracts/' as *;
+
+.wrapper-item {
+  @include flex(flex, center, center);
+  padding: 8px;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--colorBGView);
+  }
+
+  &:active {
+    background: var(--colorBGInput);
+  }
+
+  &.active {
+    color: var(--colorLink);
+  }
+
+  .wrapper-icon {
+    @include flex;
+  }
+
+  .title {
+    display: none;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+
+  @include responsive('desktop') {
+    justify-content: flex-start;
+
+    .title {
+      display: block;
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@use '~/styles/abstracts/' as *;
+
+.wrapper {
+  $spacer: 8px;
+  $border-radius: 8px;
+
+  @include position(absolute, calc(100% + $spacer), 0, null, null, null);
+  max-height: min((100vh - 96px) - 60px, 734px);
+  min-height: 100px;
+  width: 100%;
+  border-radius: $border-radius;
+  background: var(--colorBGSecondary);
+  box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+
+  &::before {
+    @include pseudo;
+    top: calc(($spacer + 6px) * -1);
+    left: 0;
+    width: 100%;
+    height: calc(10px + $spacer);
+    background-color: transparent;
+  }
+
+  .menu-item {
+    &:hover {
+      cursor: pointer;
+      background: var(--colorBGView);
+    }
+  }
+  .footer {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}

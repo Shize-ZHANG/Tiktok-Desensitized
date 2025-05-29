@@ -1,0 +1,88 @@
+@use './styles/abstracts/' as *;
+
+.wrapper-content {
+  width: 483px;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-bar {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.content {
+  width: 375px;
+  color: var(--colorTextPrimary);
+  margin: auto;
+
+  .header-title {
+    color: unset;
+    font-size: 3.2rem;
+    margin: 16px auto;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .item {
+    @include flex(flex, center, null);
+    height: 44px;
+    padding: 0px 12px;
+    border: 1px solid var(--colorLineSecondary2);
+
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: unset;
+    background: var(--colorBGTertiary);
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+
+  .item.disabled {
+    cursor: not-allowed;
+  }
+
+  .item-title {
+    flex: 1 0 auto;
+    text-align: center;
+  }
+}
+
+.policy-confirm-tips {
+  width: 100%;
+  background: var(--colorBGPrimary);
+  border-bottom: 1px solid var(--colorLineSecondary2);
+  border-top-color: var(--colorLineSecondary2);
+  border-right-color: var(--colorLineSecondary2);
+  border-left-color: var(--colorLineSecondary2);
+  padding: 16px 30px;
+  text-align: center;
+  color: var(--colorTextTertiary);
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+
+  a:hover {
+    color: unset;
+    text-decoration: underline;
+  }
+}
+
+.footer {
+  @include flex(flex, center, center);
+  color: var(--colorTextPrimary);
+  height: 64px;
+  border-top: 1px solid var(--colorLineSecondary);
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+
+  .footer-toggle-auth {
+    margin-left: 5px;
+    font-weight: 600;
+    color: var(--colorLink);
+    cursor: pointer;
+  }
+
+  .footer-toggle-auth:hover {
+    text-decoration: underline;
+  }
+}
