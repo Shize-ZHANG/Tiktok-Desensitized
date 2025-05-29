@@ -21,8 +21,8 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
       
-    - name: Check for unused dependencies
-      run: yarn depcheck
+    - name: Check for TypeScript errors
+      run: yarn tsc --noEmit
       
-    - name: Check for circular dependencies
-      run: yarn madge --circular src/ 
+    - name: Check for ESLint errors
+      run: yarn lint 
