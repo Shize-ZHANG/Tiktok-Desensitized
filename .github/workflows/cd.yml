@@ -46,6 +46,13 @@ jobs:
           ls -la out/
           echo "Listing build output directory contents:"
           find out/ -type f
+          echo "Checking for index.html:"
+          if [ -f "out/index.html" ]; then
+            echo "index.html exists"
+            cat out/index.html | head -n 5
+          else
+            echo "index.html not found"
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

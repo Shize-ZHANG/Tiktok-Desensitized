@@ -34,6 +34,7 @@ const nextConfig = {
   exportPathMap: async function () {
     return {
       '/': { page: '/' },
+      '/index': { page: '/' },
       '/404': { page: '/404' },
       '/_error': { page: '/_error' },
     }
