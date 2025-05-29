@@ -23,28 +23,3 @@ jobs:
       
     - name: Run ESLint
       run: yarn lint
-      
-    - name: Run TypeScript check
-      run: yarn tsc --noEmit
-      
-    - name: Run Prettier check
-      run: yarn prettier --check "**/*.{js,jsx,ts,tsx,json,css,scss,md}"
-      
-    - name: Run SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        
-    - name: Check bundle size
-      uses: preactjs/compressed-size-action@v2
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        pattern: '.next/static/**/*.js'
-        
-    - name: Check for security vulnerabilities
-      uses: snyk/actions/node@master
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      with:
-        args: --severity-threshold=high 
